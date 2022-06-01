@@ -7,8 +7,8 @@
     <ProjectGuid>{09B283A1-21DE-4475-818E-1BDB76F083C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwitchChatBot</RootNamespace>
-    <AssemblyName>TwitchChatBot</AssemblyName>
+    <RootNamespace>ChatBot</RootNamespace>
+    <AssemblyName>ChatBot</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
