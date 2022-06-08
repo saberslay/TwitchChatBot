@@ -3,7 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-ChatBotGUI
+ChatBotGUI/
 
 # User-specific files
 *.rsuser
@@ -14,7 +14,7 @@ ChatBotGUI
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+/ChatBotConsole
 # Mono auto generated files
 mono_crash.*
 
