@@ -1,7 +1,7 @@
 ﻿using ChatBot.Configs;
 using Newtonsoft.Json;
-using System;
 using System.IO;
+using Utils.Windows;
 
 namespace ChatBot.Utils {
     public static class ConfigFileChecker {
@@ -21,10 +21,7 @@ namespace ChatBot.Utils {
             }
             if (!File.Exists(Path.Combine(CurrentPath, "Config", "BotSettings.json"))) {
                 File.WriteAllText(Path.Combine(CurrentPath, "Config", "BotSettings.json"), strResultJson);
-                System.Windows.Forms.MessageBox.Show("Please edit the BotSettings.json file", "Twitch Chat Bot", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-            }
-            if (!Directory.Exists(Path.Combine(CurrentPath, "Commands"))) {
-                Directory.CreateDirectory(Path.Combine(CurrentPath, "Commands"));
+                Forms.MessageBox_Error_OK("Twitch Chat Bot", "Please edit the BotSettings.json file");
             }
             #endregion
 
@@ -37,14 +34,11 @@ namespace ChatBot.Utils {
             var _res = JsonConvert.DeserializeObject<BotSettings>(File.ReadAllText(Path.Combine(CurrentPath, "Config", "BotSettings.json")));
 
             if (_res.BotName == "") {
-                System.Windows.Forms.MessageBox.Show("Please enter a username for the bot", "Twitch Chat Bot Config Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                Environment.Exit(0);
+                Forms.MessageBox_Error_OK("Twitch Chat Bot Config Error", "Please enter a username for the bot");
             } else if (_res.BotToken == "" || !_res.BotToken.Contains("oauth:")) {
-                System.Windows.Forms.MessageBox.Show("Please enter the OAuth Token for the bot", "Twitch Chat Bot Config Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                Environment.Exit(0);
+                Forms.MessageBox_Error_OK("Twitch Chat Bot Config Error", "Please enter the OAuth Token for the bot");
             } else if (_res.ChannelName == "") {
-                System.Windows.Forms.MessageBox.Show("Please enter a channel name for the bot", "Twitch Chat Bot Config Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                Environment.Exit(0);
+                Forms.MessageBox_Error_OK("Twitch Chat Bot Config Error", "Please enter a channel name for the bot");
             }
         }
     }
